@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://bumyykdfol2r1"]
+
+[ext_resource type="MeshLibrary" uid="uid://dms1oo2gm854n" path="res://MeshLibrary.tres" id="1_o4w8b"]
+[ext_resource type="Script" path="res://hole.gd" id="1_yw7dr"]
+[ext_resource type="PackedScene" uid="uid://ct6t3ckdq3tho" path="res://ball.tscn" id="2_a0fqq"]
+[ext_resource type="PackedScene" uid="uid://dixkiow2p7u5o" path="res://arrow.tscn" id="3_2py3x"]
+[ext_resource type="PackedScene" uid="uid://dx4bycrbxose4" path="res://ui.tscn" id="4_ll78m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kykoi"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mdg0o"]
+sky_material = SubResource("ProceduralSkyMaterial_kykoi")
+
+[sub_resource type="Environment" id="Environment_f2d5q"]
+background_mode = 2
+sky = SubResource("Sky_mdg0o")
+tonemap_mode = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pgdw6"]
+rough = true
+bounce = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7efd0"]
+height = 0.25
+radius = 0.08
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yjofu"]
+bounce = 0.25
+
+[node name="Hole" type="Node3D"]
+script = ExtResource("1_yw7dr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f2d5q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 40.2
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_o4w8b")
+physics_material = SubResource("PhysicsMaterial_pgdw6")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 65534, 1441797, 65535, 65534, 5, 65535, 65535, 20, 0, 65535, 655380, 0, 0, 655380, 65535, 0, 20, 65535, 1, 16, 65534, 1, 5, 65534, 2, 1048581, 0, 2, 655365, 0, 1, 655380, 65535, 2, 1048596)
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999855, -0.0129358, 0.0110819, -0.000491062, 0.672209, 0.740362, -0.0170265, 0.740249, -0.672118, 2.38419e-07, 3.46289, -2.62178)
+fov = 71.6357
+
+[node name="Hole" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502134, 0.478948, 1.48893)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hole"]
+shape = SubResource("CylinderShape3D_7efd0")
+
+[node name="Tee" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.284288, 0.759159, -1.59906)
+
+[node name="Ball" parent="." instance=ExtResource("2_a0fqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88691, -1.651)
+physics_material_override = SubResource("PhysicsMaterial_yjofu")
+continuous_cd = true
+linear_damp = 0.5
+angular_damp = 1.0
+
+[node name="Arrow" parent="." instance=ExtResource("3_2py3x")]
+
+[node name="UI" parent="." instance=ExtResource("4_ll78m")]
+
+[connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
+[connection signal="stopped" from="Ball" to="." method="_on_ball_stopped"]

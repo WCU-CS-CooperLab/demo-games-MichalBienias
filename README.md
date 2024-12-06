@@ -6,3 +6,5 @@ A template repository to publish games
 [SpaceRocks](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/spacerocks/index.html)
 
 [3DMiniGolf](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/3dminigolf/index.html)
+
+[CoinDash2](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/coindash/player_scene/index.html)

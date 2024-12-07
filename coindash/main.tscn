@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b44thgxtoqc08"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_bguqp"]
+[ext_resource type="PackedScene" uid="uid://tpt7n51ja7jk" path="res://coin.tscn" id="2_60ddk"]
+[ext_resource type="PackedScene" uid="uid://3n3c57wfh6xw" path="res://boost.tscn" id="3_c4xp4"]
+[ext_resource type="Texture2D" uid="uid://bv55taginb3eo" path="res://assets/grass.png" id="3_d75y8"]
+[ext_resource type="PackedScene" uid="uid://dmcwsrghne7c5" path="res://player.tscn" id="4_gn1wg"]
+[ext_resource type="PackedScene" uid="uid://q8y8rltxik3q" path="res://hud.tscn" id="5_nmhxc"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_bguqp")
+coin_scene = ExtResource("2_60ddk")
+boost_scene = ExtResource("3_c4xp4")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_d75y8")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("4_gn1wg")]
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("5_nmhxc")]
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pickup" from="Player" to="." method="_on_player_pickup"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

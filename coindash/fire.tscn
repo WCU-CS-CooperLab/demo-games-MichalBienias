@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://sal6mgn2tcpb"]
+
+[ext_resource type="Script" path="res://fire.gd" id="1_bw8ug"]
+[ext_resource type="Texture2D" uid="uid://c4vymsg7qdx5h" path="res://assets/harm/fireball-1.png" id="1_uhfyu"]
+[ext_resource type="Texture2D" uid="uid://cdvau4phrh76f" path="res://assets/harm/fireball-2.png" id="2_sprpl"]
+[ext_resource type="Texture2D" uid="uid://cmv1tk00w1soq" path="res://assets/harm/fireball-3.png" id="3_qbrxb"]
+[ext_resource type="Texture2D" uid="uid://bwm6ddc7gi0xj" path="res://assets/harm/fireball-4.png" id="4_f46xc"]
+[ext_resource type="Texture2D" uid="uid://d04ttpy3ko4lw" path="res://assets/harm/fireball-5.png" id="5_2mair"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6621"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uhfyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sprpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qbrxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f46xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2mair")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hab0u"]
+radius = 30.0167
+
+[node name="Fire" type="Area2D" groups=["fire"]]
+script = ExtResource("1_bw8ug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["fire"]]
+position = Vector2(1.06581e-14, -5)
+rotation = 1.5708
+scale = Vector2(3.02586, 2.91667)
+sprite_frames = SubResource("SpriteFrames_i6621")
+autoplay = "default"
+frame_progress = 0.498536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["fire"]]
+shape = SubResource("CircleShape2D_hab0u")

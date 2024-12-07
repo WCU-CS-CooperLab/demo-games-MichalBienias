@@ -9,5 +9,5 @@ A template repository to publish games
 
 # Project 1
 Project 1 includes the original CoinDash game and a sequel
-[Project 1 Phase I](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project1/coindash/player_scene/index.html)
+[Project 1 Phase I](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project1/coindash/player_scene/index.html)  \n
 [Project 1 Phase II](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project1/coindash2/player_scene/index.html)

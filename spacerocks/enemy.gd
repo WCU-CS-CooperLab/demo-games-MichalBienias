@@ -4,7 +4,7 @@ extends Area2D
 @export var speed = 150
 @export var rotation_speed = 120
 @export var health = 3
-@export var bullet_spread = 0.2
+@export var bullet_spread = 0.5
 
 var follow = PathFollow2D.new()
 var target = null

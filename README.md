@@ -15,4 +15,4 @@ Project 1 includes the original CoinDash game and a sequel <br />
 # Project 2
 Project 1 includes the original SpaceRocks game and a sequel <br />
 [Project 2 Phase I](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project2/SpaceRocks_Draft/index.html)<br />
-[Project 1 Phase II](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project2/spacerocks2/index.html)<br />
+[Project 2 Phase II](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project2/spacerocks2/index.html)<br />

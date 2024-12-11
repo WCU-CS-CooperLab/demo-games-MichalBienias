@@ -7,6 +7,8 @@ A template repository to publish games
 
 [3DMiniGolf](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/3dminigolf/index.html)
 
+[JungleJump](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/junglejump/index.html)
+
 # Project 1
 Project 1 includes the original CoinDash game and a sequel <br />
 [Project 1 Phase I](https://wcu-cs-cooperlab.github.io/demo-games-MichalBienias/Project1/coindash/player_scene/index.html)<br />
